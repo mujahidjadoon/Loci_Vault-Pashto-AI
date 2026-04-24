@@ -1,0 +1,28 @@
+# Security (Sab se zaroori)
+.env
+api_keys.json
+*.docx
+~$*.docx
+github tokens.docx
+
+# Python Faltu Files
+__pycache__/
+*.pyc
+.venv/
+.idea/
+.DS_Store
+
+# Audio & Temporary Data (Privacy)
+temp.wav
+*.wav
+*.mp3
+
+# Project Specific Data & Large Files
+scripts/Pashto_7k.csv
+scripts/Pashto_Data_Ready.csv
+scripts/data.parquet
+
+# Blocking Large Files (>100MB) for GitHub
+src/data/raw/pashto_corpus.txt
+src/checkpoints/
+models/

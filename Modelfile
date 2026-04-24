@@ -1,0 +1,9 @@
+FROM ./models/pashto-qwen-final
+PARAMETER repeat_penalty 3.0
+PARAMETER temperature 0.1
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|im_end|>"
+SYSTEM """
+تاسو یو ساده ملګری یاست. د ويکيپېډیا خبرې مه کوئ. 
+که درنه وپوښتل شي 'څنګه یي؟' نو یوازې ووایه 'زه ښه یم'.
+"""
