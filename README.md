@@ -1,87 +1,107 @@
-🛡️ Loci_Vault: Privacy-First Local Pashto AI Assistant
-
+LociVault: Privacy-First Local Pashto AI Assistant
 🚀 Overview
 
-Loci_Vault is a specialized AI framework designed to solve the data scarcity and privacy challenges in low-resource languages like Pashto. 
-By integrating the Method of Loci (Spatial Memory) with Retrieval-Augmented Generation (RAG), the system creates a "Digital Memory Palace" where your documents are spatially indexed for hyper-accurate retrieval. 
-Running 100% locally on the Apple M4 Silicon, it acts as a secure, offline vault that transforms static Pashto literature into a private, context-aware intelligence base.
+LociVault is a privacy-first AI framework designed for low-resource languages such as Pashto. It enables users to build a local, context-aware question-answering system over their own documents without relying on cloud services.
+
+The system is based on Retrieval-Augmented Generation (RAG), where user-provided Pashto texts are indexed using vector embeddings and retrieved at query time to generate grounded responses.
+
+All components run locally on Apple Silicon devices, ensuring full data privacy and offline usability.
 
 ✨ Core Features
 
-📚 Intelligent Context-Aware RAG
-Unlike standard LLMs that rely solely on pre-trained data, Loci_Vault can ingest specific Pashto books and documents. It extracts precise answers from the provided context, 
-making it significantly more reliable for academic or professional use where accuracy is critical.
+📚 Context-Aware Document Retrieval
 
-🎙️ Advanced Pashto Speech-to-Text (STT)
-Integrated with OpenAI's Whisper, optimized for Pashto phonetics to ensure seamless transition from voice commands to digital text.
+Ingests Pashto documents (books, notes, PDFs)
+Converts text into embeddings
+Retrieves relevant content using similarity search
+Improves answer relevance by grounding responses in retrieved context
 
-🍎 M4 Silicon Optimization
-Leveraging the Unified Memory Architecture of Apple's latest chip, the system manages large vector embeddings and LLM weights with extreme efficiency.
+🎙️ Speech-to-Text Support
 
-🔒 Zero-Cloud Dependency
-Operating via Ollama, the system is 100% offline. No data is ever sent to external servers, making it ideal for sensitive Pashto linguistic research.
+Uses OpenAI Whisper for Pashto speech recognition
+Converts spoken input into text queries
+Accuracy depends on audio quality and dialect
 
+🔒 Fully Local & Private
 
+Runs locally via Ollama
+Uses FAISS for vector search
+Optional support for ChromaDB
+No external API calls required
 
-📸 Project Showcase (Evolution of Logic)
+🍎 Apple Silicon Support
 
-1️⃣ General Pashto Discussion
-Initial interaction showing the model's base understanding of Pashto linguistics and conversational flow.
+Efficient execution on Apple M-series (M1–M4) devices
+Supports MLX / PyTorch-based inference
+Optimized for local workloads
 
-2️⃣ Context Injection (Book Loading)
-Demonstrating the process of adding specific Pashto literature/books into the local vector database.
+🧠 System Architecture
 
-3️⃣ Contextual Question Answering
-Once the book is indexed, the model provides 100% accurate answers based only on the provided text, eliminating hallucinations.
+The system follows a standard RAG pipeline:
 
-4️⃣ Deep Knowledge Extraction
-Showcasing the system's intelligence in understanding complex queries within the Pashto context.
+Document Ingestion:
 
-🛠️ Technical Stack
+..Text is split into chunks
+..Each chunk is converted into embeddings
 
-Component                  Technology
-LLM Infrastructure    Ollama (Llama-3, Phi-3)"
-STT Engine               OpenAI Whisper
-Inference Engine    Apple MLX / PyTorch (M4 Optimized)
-Vector Storage      Local FAISS / ChromaDB for RAG
+Vector Storage:
 
+..Embeddings are stored in FAISS index
+..Original text is stored in metadata
 
-Installation & Setup
-Clone & Navigate:
-Bash
+Query Processing:
+
+User query is embedded
+Similar chunks are retrieved using vector similarity
+
+Response Generation:
+
+Retrieved context is passed to the LLM
+Ollama generates the final response
+
+🛠️ Technical Stack:
+
+Component	                           Technology
+LLM Runtime	                        Ollama (Llama 3, Phi-3)
+Speech-to-Text	                     OpenAI Whisper (Local)
+Vector Database	                          FAISS
+Optional DB	                               ChromaDB
+Inference Engine	                        MLX / PyTorch
+Language	                                Python 3.11+
+
+📂 Repository Structure:
+
+src/        # Core RAG pipeline and STT logic
+scripts/    # Data preprocessing
+docs/       # Documentation
+Modelfile/  # Model configuration
+
+⚙️ Installation:
+
 git clone https://github.com/mujahidjadoon/Loci_Vault-Pashto-AI.git
 cd Loci_Vault-Pashto-AI
 
-
-Virtual Environment:
-Bash
 python -m venv .venv
 source .venv/bin/activate
+
 pip install -r requirements.txt
 
-
-Run Application:
-Bash
 python src/main.py
 
+🎯 Use Cases:
 
-📂 Repository Structure
-src/: Core logic for RAG and Pashto STT processing.
+Pashto document question answering
+Offline AI assistant
+Academic research support
+Language preservation
 
-scripts/: Data cleaning scripts for limited Pashto datasets.
+⚠️ Limitations:
 
-docs/: Technical documentation and system architecture.
+Performance depends on available Pashto datasets
+Speech recognition accuracy may vary
+RAG reduces hallucinations but does not eliminate them
 
-🤝 Contributing
-We are focused on improving Pashto NLP accuracy. Feel free to open issues or submit pull requests to enhance the local Pashto intelligence.
+💡 Design Note:
 
-
-
-
-
-
-
-
-
-
-
+The name “LociVault” is inspired by the Method of Loci (Memory Palace) concept.
+However, the current implementation uses vector-based semantic retrieval, not explicit spatial memory modeling.
