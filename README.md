@@ -1,4 +1,5 @@
 🛡️ LociVault: Privacy-First Local Pashto AI Assistant
+
 🚀 Overview
 
 LociVault is a privacy-first AI framework designed for low-resource languages such as Pashto. It enables users to build a local, context-aware question-answering system over their own documents without relying on cloud services.
