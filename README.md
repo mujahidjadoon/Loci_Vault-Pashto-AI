@@ -42,21 +42,25 @@ The system follows a standard RAG pipeline:
 1. Document Ingestion
  
 .....Text is split into chunks
+
 .....Each chunk is converted into embeddings
 
 2. Vector Storage
 
 .....Embeddings are stored in a FAISS index
+
 .....Original text is stored in metadata
 
 3. Query Processing
 
 .....User query is converted into embeddings
+
 .....Similar chunks are retrieved using vector similarity
 
 4. Response Generation
 
 .....Retrieved context is passed to the LLM
+
 .....Ollama generates the final response
    
 🛠️ Technical Stack
