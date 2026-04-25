@@ -125,7 +125,7 @@ with st.container():
 if send_btn and user_input:
     st.session_state.voice_text = ""
     st.session_state.messages.append({"role": "user", "content": user_input})
-
+  
     with st.spinner("AI thinking..."):
         # API call using Secure Variables
         headers = {"Authorization": f"Bearer {API_KEY}", "Content-Type": "application/json"}
