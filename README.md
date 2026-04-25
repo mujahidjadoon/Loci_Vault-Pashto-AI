@@ -1,11 +1,10 @@
 🛡️ Loci_Vault: Privacy-First Local Pashto AI Assistant
 
 🚀 Overview
-Loci_Vault is a specialized AI framework designed to overcome the limitations of low-resource languages like Pashto. While general models on Hugging Face often struggle with specific Pashto dialects or limited training data.
-Loci_Vault uses Retrieval-Augmented Generation (RAG) to provide highly accurate, document-based intelligence.
 
-By running everything locally on the Apple M4 Mac Mini, it ensures that your private knowledge base (books, documents, research) stays secure while providing sub-second inference speeds.
-
+Loci_Vault is a specialized AI framework designed to solve the data scarcity and privacy challenges in low-resource languages like Pashto. 
+By integrating the Method of Loci (Spatial Memory) with Retrieval-Augmented Generation (RAG), the system creates a "Digital Memory Palace" where your documents are spatially indexed for hyper-accurate retrieval. 
+Running 100% locally on the Apple M4 Silicon, it acts as a secure, offline vault that transforms static Pashto literature into a private, context-aware intelligence base.
 
 ✨ Core Features
 
