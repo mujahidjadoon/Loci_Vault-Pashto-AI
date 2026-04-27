@@ -1,5 +1,6 @@
  
  Local Pashto AI Assistant
+ 
 A privacy-first AI assistant for Pashto. Ask questions about your own documents — books, notes, PDFs — by text or voice. Everything runs locally. Nothing leaves your machine.
 
 Why
@@ -18,6 +19,7 @@ Vector store	FAISS (ChromaDB optional)
 Inference	MLX / PyTorch
 Language	Python 3.11+
 Built and tested on Apple Silicon (M1, M4).
+
 
 How it works
 Documents get chunked and embedded into a FAISS index. At query time, the question is embedded, the closest chunks are retrieved, and Ollama generates an answer grounded in that retrieved context. Standard RAG pipeline, nothing exotic.
