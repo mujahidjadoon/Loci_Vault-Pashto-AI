@@ -1,113 +1,48 @@
- LociVault: Privacy-First Local Pashto AI Assistant
-
- Overview
-
-LociVault is a privacy first AI framework designed for low resource languages such as Pashto. It enables users to build a local, context aware question answering system over their own documents without relying on cloud services.
-
-The system is based on Retrieval Augmented Generation (RAG), where user provided Pashto texts are indexed using vector embeddings and retrieved at query time to generate grounded responses.
-
-All components run locally on Apple Silicon devices, ensuring full data privacy and offline usability.
-
- Core Features:
-
- Context-Aware Document Retrieval
-
-Ingests Pashto documents (books, notes, PDFs)
-Converts text into embeddings
-Retrieves relevant content using similarity search
-Improves answer relevance by grounding responses in retrieved context
-
-🎙️ Speech to Text Support
-
-Uses OpenAI Whisper for Pashto speech recognition
-Converts spoken input into text queries
-Accuracy depends on audio quality and dialect
-
- Fully Local & Private
-
-Runs locally via Ollama
-Uses FAISS for vector search
-Optional support for ChromaDB
-No external API calls required
-
- Apple Silicon Support
-
-Efficient execution on Apple M-series (M1,M4) devices
-Supports MLX / PyTorch based inference
-Optimized for local workloads
-
- System Architecture
-
-The system follows a standard RAG pipeline:
-
-1. Document Ingestion
  
-.....Text is split into chunks
+ Local Pashto AI Assistant
+A privacy-first AI assistant for Pashto. Ask questions about your own documents — books, notes, PDFs — by text or voice. Everything runs locally. Nothing leaves your machine.
 
-.....Each chunk is converted into embeddings
+Why
+Pashto is spoken by around 60 million people, but most AI tools handle it poorly or not at all. Cloud APIs aren't always an option for sensitive documents either. This project is one attempt at filling that gap with a fully local stack.
 
-2. Vector Storage
+What it does
+Ingests Pashto documents and indexes them as vector embeddings
+Answers questions by retrieving relevant passages and grounding the response in them (RAG)
+Accepts voice input in Pashto via local Whisper
+Runs entirely offline — no API keys, no cloud calls
+Stack
+Component	Tool
+LLM runtime	Ollama (Llama 3, Phi-3)
+Speech-to-text	Whisper (local)
+Vector store	FAISS (ChromaDB optional)
+Inference	MLX / PyTorch
+Language	Python 3.11+
+Built and tested on Apple Silicon (M1, M4).
 
-.....Embeddings are stored in a FAISS index
+How it works
+Documents get chunked and embedded into a FAISS index. At query time, the question is embedded, the closest chunks are retrieved, and Ollama generates an answer grounded in that retrieved context. Standard RAG pipeline, nothing exotic.
 
-.....Original text is stored in metadata
+Install
 
-3. Query Processing
-
-.....User query is converted into embeddings
-
-.....Similar chunks are retrieved using vector similarity
-
-4. Response Generation
-
-.....Retrieved context is passed to the LLM
-
-.....Ollama generates the final response
-   
-🛠️ Technical Stack
-
-Component	             Technology
-LLM Runtime	     Ollama (Llama 3, Phi-3)
-Speech-to-Text	  OpenAI Whisper (Local)
-Vector Database	         FAISS
-Optional Database	       ChromaDB
-Inference Engine	       MLX / PyTorch
-Language	                Python 3.11+
-
-📂 Repository Structure
-
-src/        # Core RAG pipeline and STT logic  
-scripts/    # Data preprocessing  
-docs/       # Documentation  
-Modelfile/  # Model configuration  
-
-⚙️ Installation
-
+bash
 git clone https://github.com/mujahidjadoon/Loci_Vault-Pashto-AI.git
 cd Loci_Vault-Pashto-AI
 
 python -m venv .venv
 source .venv/bin/activate
-
 pip install -r requirements.txt
 
 python src/main.py
+Repository
 
- Use Cases
+src/        # RAG pipeline and STT logic
+scripts/    # Data preprocessing
+docs/       # Documentation
+Modelfile   # Model configuration
+Use cases
+Pashto document Q&A, offline assistants, academic research, language preservation work.
 
-Pashto document question answering
-Offline AI assistant
-Academic research support
-Language preservation
-
- Limitations
-
-Performance depends on available Pashto datasets
-Speech recognition accuracy may vary
-RAG reduces hallucinations but does not eliminate them
-
- Design Note
-
-
-The name “LociVault” is inspired by the Method of Loci (Memory Palace) concept.
-However, the current implementation uses vector based semantic retrieval rather than explicit spatial memory modeling.
+Limitations
+Quality depends on the Pashto data you feed it
+Speech recognition accuracy varies with audio quality and dialect
+RAG reduces hallucinations but doesn't eliminate them
