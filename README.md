@@ -1,5 +1,5 @@
  
- Local Pashto AI Assistant
+ Local_Pashto-AI-Assistant
  
 A privacy-first AI assistant for Pashto. Ask questions about your own documents — books, notes, PDFs — by text or voice. Everything runs locally. Nothing leaves your machine.
 
@@ -27,7 +27,7 @@ Documents get chunked and embedded into a FAISS index. At query time, the questi
 Install
 
 bash
-git clone https://github.com/mujahidjadoon/Loci_Vault-Pashto-AI.git
+git clone https://github.com/mujahidjadoon/Local_pashto-AI-Assistant
 cd Loci_Vault-Pashto-AI
 
 python -m venv .venv
