@@ -28,23 +28,30 @@ Install
 
 bash
 git clone https://github.com/mujahidjadoon/Local_pashto-AI-Assistant
-cd Loci_Vault-Pashto-AI
+Local_pashto-AI-Assistant
 
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
 python src/main.py
+
 Repository
 
 src/        # RAG pipeline and STT logic
+
 scripts/    # Data preprocessing
+
 docs/       # Documentation
+
 Modelfile   # Model configuration
+
 Use cases
+
 Pashto document Q&A, offline assistants, academic research, language preservation work.
 
 Limitations
+
 Quality depends on the Pashto data you feed it
 Speech recognition accuracy varies with audio quality and dialect
 RAG reduces hallucinations but doesn't eliminate them
